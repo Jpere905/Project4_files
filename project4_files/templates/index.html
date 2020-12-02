@@ -1,0 +1,27 @@
+{% extends "template.html" %}
+{% block content %}
+
+  <header id="hero" class="hero">
+    <div class="flex-container w-container">
+      <div>
+        <h1>Add an expense</h1>
+        <a href="{{ url_for('addExpenses') }}" class="button-8 w-button">Add an Expense</a>
+      </div>
+    </div>
+  </header>
+<section id="feature-section" class="feature-section">
+    <div class="flex-container w-container">
+      <div>
+        <!-- in this page you need to pass an instance of the form objects to the template in routes as arguements -->
+        <h2>Track your expenses</h2>
+        <p>Total expenses: ${{ total_expenses }}</p>
+
+        <h2>By category</h2>
+        {% for key in category_expenses_dict %}
+          <p>US ${{ category_expenses_dict[key] }} in {{ key }} </p>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+{% endblock %}
